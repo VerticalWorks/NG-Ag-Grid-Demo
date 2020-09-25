@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { DataLayerService} from './services/data-layer.service'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,12 +15,15 @@ import { MyTableComponent } from './components/my-table/my-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { AppPageNotFoundComponent } from './components/app-page-not-found/app-page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    MyTableComponent
+    MyTableComponent,
+    AppPageNotFoundComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatPaginatorModule,
     MatSortModule
   ],
-  providers: [],
+  providers: [DataLayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
