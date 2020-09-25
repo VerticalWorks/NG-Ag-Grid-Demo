@@ -16,14 +16,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { AppPageNotFoundComponent } from './components/app-page-not-found/app-page-not-found.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     MyTableComponent,
-    AppPageNotFoundComponent
-    
+    AppPageNotFoundComponent  
   ],
   imports: [
     BrowserModule,
@@ -37,7 +37,8 @@ import { AppPageNotFoundComponent } from './components/app-page-not-found/app-pa
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    AgGridModule.withComponents([])
   ],
   providers: [DataLayerService],
   bootstrap: [AppComponent]
