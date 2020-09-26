@@ -1,8 +1,8 @@
 import { People } from './people';
 
-export class ApiResultSet {
+export class ApiResultPeople {
     "count": number; 
     "next": string;
     "previous": string; 
-    "results": [People]
+    "results": Array<People>
 }

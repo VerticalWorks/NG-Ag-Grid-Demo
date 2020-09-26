@@ -1,1 +1,12 @@
-
+<div class='top-level'>
+  <div class='title'>Star Wars People</div>
+  <div class='grid'>
+    <ag-grid-angular
+      id="theGrid"
+      style="width: 500px; height: 500px;"
+      class="ag-theme-alpine"
+      [columnDefs]="columnDefs"
+      [rowData] ="apiResults.results">
+    </ag-grid-angular>
+  </div>
+</div>

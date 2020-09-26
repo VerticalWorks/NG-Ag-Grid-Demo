@@ -1,7 +1,7 @@
-import { ApiResultSet } from './api-result-set';
+import { ApiResultPeople } from './api-result-people';
 
-describe('ApiResultSet', () => {
+describe('ApiResultPeople', () => {
   it('should create an instance', () => {
-    expect(new ApiResultSet()).toBeTruthy();
+    expect(new ApiResultPeople()).toBeTruthy();
   });
 });
