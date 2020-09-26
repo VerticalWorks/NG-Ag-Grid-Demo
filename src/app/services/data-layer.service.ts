@@ -1,33 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Observable, of} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ApiResultPeople } from '../models/api-result-people';
-import { ApiResultPlanet } from '../models/api-result-planet';
-import { People } from '../models/people';
+import { Planet, People, ApiResultPeople } from '../models';
 import { inject } from '@angular/core/testing';
-import { tap } from 'rxjs/operators';
+import { concatMap, map, switchMap, tap } from 'rxjs/operators';
+import { Observable, of, pipe, forkJoin, from } from 'rxjs'
+  
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataLayerService {
 
-  private apiPeopleURL: string = 'https://swapi.dev/api/people/';
-  private apiPlanetURL: string = 'https://swapi.dev/api/planets/';
+  private apiPeopleURL: string = 'https://swapi.dev/api/people/'
   
-  constructor(private httpClient: HttpClient) { }
   
-  public fetchAllPeople(): Observable<ApiResultPeople>{
-    this.httpClient.get<ApiResultPeople>(this.apiPeopleURL).subscribe(response =>{
-        response.results = response.results.map(data=>{
-          
-        })
-    })
-}
-  private getPeople(): Observable<ApiResultPeople>{
-      return this.httpClient.get<ApiResultPeople>(this.apiPeopleURL)
+  constructor(private httpClient: HttpClient) { 
   }
-  private getPlanet(id): Observable<ApiResultPlanet>{
-    return this.httpClient.get<ApiResultPlanet>(this.apiPlanetURL + id)
+  
+  public async fetchAllPeopleAndWorldData(): Promise<ApiResultPeople> {
+      let result1 = await this.getPeople()
+      for (let item of result1.results) {
+        let result2 = await this.getPlanet(item.homeworld) 
+        item.homeworld = result2.name
+      }
+      return result1
+  }
+  public async getPeople(): Promise<ApiResultPeople>{
+    return this.httpClient.get<ApiResultPeople>(this.apiPeopleURL).toPromise()
+  }
+  public async getPlanet(id:string): Promise<Planet>{
+    return this.httpClient.get<Planet>(id).toPromise()
 }
 }

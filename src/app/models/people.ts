@@ -1,3 +1,4 @@
+import {Planet} from './planet'
 export class People {
         "name": string; 
         "height": string; 
@@ -7,7 +8,8 @@ export class People {
         "eye_color": string; 
         "birth_year": string; 
         "gender": string; 
-        "homeworld": string; 
+        "homeworld": string;
+        "homeWorldData": Planet; 
         "films": [string]; 
         "species":  [string];
         "vehicles": [string]; 
