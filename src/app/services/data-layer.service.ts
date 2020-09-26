@@ -17,10 +17,17 @@ export class DataLayerService {
   
   constructor(private httpClient: HttpClient) { }
   
-  getPeople(): Observable<ApiResultPeople>{
+  public fetchAllPeople(): Observable<ApiResultPeople>{
+    this.httpClient.get<ApiResultPeople>(this.apiPeopleURL).subscribe(response =>{
+        response.results = response.results.map(data=>{
+          
+        })
+    })
+}
+  private getPeople(): Observable<ApiResultPeople>{
       return this.httpClient.get<ApiResultPeople>(this.apiPeopleURL)
   }
-  getPlanet(id): Observable<ApiResultPlanet>{
+  private getPlanet(id): Observable<ApiResultPlanet>{
     return this.httpClient.get<ApiResultPlanet>(this.apiPlanetURL + id)
 }
 }
