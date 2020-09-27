@@ -4,6 +4,7 @@ import { ApiResultPeople } from 'src/app/models/api-result-people';
 import { Planet } from 'src/app/models/planet';
 import { People } from 'src/app/models/people';
 import { DataLayerService } from '../../services/data-layer.service';
+import { GridOptions } from 'ag-grid-community';
 
 @Component({
   selector: 'app-my-table',
@@ -11,34 +12,70 @@ import { DataLayerService } from '../../services/data-layer.service';
   styleUrls: ['./my-table.component.less']
 })
 export class MyTableComponent implements AfterViewInit, OnInit {
-  columnDefs = [
-    { field: 'name', sortable: true, filter: true },
-    { field: 'birth_year', sortable: true, filter: true },
-    { field: 'homeworld', sortable:true, filter:true}
-  ]
-  
+  gridOptions: GridOptions;
   apiResults = {}  as ApiResultPeople;
-
+  gridApi;
+  gridColumnApi;
+  autoGroupColumnDef;
+  columnDefs;
+  defaultColDef;
+  rowSelection;
+  rowGroupPanelShow;
+  pivotPanelShow;
+  rowData: [];
+  checkboxSelection = function (params) {
+    return params.columnApi.getRowGroupColumns().length === 0;
+  };
+  headerCheckboxSelection = function (params) {
+    return params.columnApi.getRowGroupColumns().length === 0;
+  };
+  
   
   constructor(private dataService: DataLayerService) {
     this.apiResults.count=0;
     this.apiResults.next='';
     this.apiResults.previous='';
     this.apiResults.results = Array<People>();
-    this.fetchAllPeople()
-  }
+    this.rowSelection = 'multiple';
+    this.columnDefs = [
+      { field: 'name', sortable: true, filter: true, checkboxSelection: this.checkboxSelection },
+      { field: 'birth_year', sortable: true, filter: true },
+      { field: 'homeworld', sortable:true, filter:true}
+    ]
 
+    this.autoGroupColumnDef = {
+      headerName: 'Group',
+      minWidth: 130,
+      field: 'name',
+      valueGetter: function (params) {
+        if (params.node.group) {
+          return params.node.key;
+        } else {
+          return params.data[params.colDef.field];
+        }
+      },
+      headerCheckboxSelection: false,
+      cellRenderer: 'agGroupCellRenderer',
+      cellRendererParams: { checkbox: true },
+    };
+  }
   
   ngOnInit() {
   }
 
   ngAfterViewInit() {
-    this.fetchAllPeople()
   }
-
+  
   fetchAllPeople(){
    this.dataService.fetchAllPeopleAndWorldData().then(data=>{
       this.apiResults=data
    })
   }
+
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    this.fetchAllPeople()
+  }
+  
 }

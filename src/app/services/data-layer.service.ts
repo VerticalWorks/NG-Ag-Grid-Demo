@@ -26,10 +26,10 @@ export class DataLayerService {
       }
       return result1
   }
-  public async getPeople(): Promise<ApiResultPeople>{
+  private async getPeople(): Promise<ApiResultPeople>{
     return this.httpClient.get<ApiResultPeople>(this.apiPeopleURL).toPromise()
   }
-  public async getPlanet(id:string): Promise<Planet>{
+  private async getPlanet(id:string): Promise<Planet>{
     return this.httpClient.get<Planet>(id).toPromise()
 }
 }

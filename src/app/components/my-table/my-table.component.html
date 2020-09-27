@@ -2,11 +2,16 @@
   <div class='title'>Star Wars People</div>
   <div class='grid'>
     <ag-grid-angular
-      id="theGrid"
+      #myGrid
+      id="myGrid"
       style="width: 500px; height: 500px;"
       class="ag-theme-alpine"
       [columnDefs]="columnDefs"
-      [rowData] ="apiResults.results">
+      [rowData] ="apiResults.results"
+      [rowSelection]="rowSelection"
+      [autoGroupColumnDef]="autoGroupColumnDef"
+      [pagination]="true"
+      (gridReady)="onGridReady($event)">
     </ag-grid-angular>
   </div>
 </div>
