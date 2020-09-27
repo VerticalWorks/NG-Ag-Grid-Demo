@@ -1,4 +1,15 @@
 # Bowman
+### This project was created over two days.  I did not want to be unfair and take any longer to complete your tasks.
+
+## ISSUES
+- I had to use y girlfirends PC as mine was destroyed in the fires.
+- The AG-GRID does not support drag and drop with sorting enabled at the same time, so I had to disable drag and drop.  It's very easy to reactivate by simply changing:   rowDrag from false to true in the my-table.component.ts file
+- Also, I did not complete writing the selected(checked) rows to local storage due to self inflicted time constraints.
+- Pagination was almost working (buttons showing) but because I used the community edition of Ag-Grid, I could not use the Server Side Row Model; which allows for pagination.  I have used it before with Django, it works great.  In fact the AG-Grid will handle 100,000 rows with ease in the Client Side Model; pagination is a breeze.
+- I did not complete the favorties page (filtering on just favorites).
+- I did not complete your toggle either (again due to time).
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
 
@@ -14,14 +25,3 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
