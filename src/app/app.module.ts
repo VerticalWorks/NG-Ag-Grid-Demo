@@ -19,13 +19,15 @@ import { AppPageNotFoundComponent } from './components/app-page-not-found/app-pa
 import { AgGridModule } from 'ag-grid-angular';
 import { GridOptions, AllCommunityModules} from '@ag-grid-community/all-modules';
 import { HttpClientModule } from '@angular/common/http';
+import { BowmanComponent } from './components/bowman/bowman.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     MyTableComponent,
-    AppPageNotFoundComponent  
+    AppPageNotFoundComponent,
+    BowmanComponent  
   ],
   imports: [
     BrowserModule,

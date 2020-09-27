@@ -4,7 +4,9 @@ import { ApiResultPeople } from 'src/app/models/api-result-people';
 import { Planet } from 'src/app/models/planet';
 import { People } from 'src/app/models/people';
 import { DataLayerService } from '../../services/data-layer.service';
-import { GridOptions } from 'ag-grid-community';
+import { GridOptions, Module } from 'ag-grid-community';
+import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
+
 
 @Component({
   selector: 'app-my-table',
@@ -22,6 +24,7 @@ export class MyTableComponent implements AfterViewInit, OnInit {
   rowSelection;
   rowGroupPanelShow;
   pivotPanelShow;
+  rowDragManaged;
   rowData: [];
   checkboxSelection = function (params) {
     return params.columnApi.getRowGroupColumns().length === 0;
@@ -36,12 +39,19 @@ export class MyTableComponent implements AfterViewInit, OnInit {
     this.apiResults.next='';
     this.apiResults.previous='';
     this.apiResults.results = Array<People>();
+
     this.rowSelection = 'multiple';
     this.columnDefs = [
-      { field: 'name', sortable: true, filter: true, checkboxSelection: this.checkboxSelection },
-      { field: 'birth_year', sortable: true, filter: true },
-      { field: 'homeworld', sortable:true, filter:true}
+      { rowDrag:false ,checkboxSelection: this.checkboxSelection, width:40, sortable:true, filter:true},
+      { field: 'name', sortable:true, filter:true},
+      { field: 'birth_year', sortable:true, filter:true },
+      { field: 'homeworld',sortable:true, filter:true }
     ]
+    this.defaultColDef = {
+      width: 170,
+      sortable: true,
+      filter: true
+    };
 
     this.autoGroupColumnDef = {
       headerName: 'Group',
@@ -77,5 +87,4 @@ export class MyTableComponent implements AfterViewInit, OnInit {
     this.gridColumnApi = params.columnApi;
     this.fetchAllPeople()
   }
-  
 }
