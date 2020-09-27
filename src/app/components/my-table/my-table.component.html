@@ -12,9 +12,21 @@
       [rowSelection]="rowSelection"
       [autoGroupColumnDef]="autoGroupColumnDef"
       [rowDragManaged]="true"
+      [suppressLoadingOverlay] = "suppressLoadingOverlay"
       [animateRows]="true"
       [pagination]="false"
       (gridReady)="onGridReady($event)">
     </ag-grid-angular>
+  </div>
+  <div>
+    <mat-paginator
+     #paginator
+     [pageSize]="config.pageSize"
+     [pageSizeOptions]="[10]"
+     [showFirstLastButtons]="true"
+     [length]="apiResults.count"
+     [pageIndex]="config.pageIndex"
+     (page)="handlePage($event)">
+</mat-paginator>
   </div>
 </div>

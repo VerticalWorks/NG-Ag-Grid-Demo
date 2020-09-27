@@ -18,16 +18,16 @@ export class DataLayerService {
   constructor(private httpClient: HttpClient) { 
   }
   
-  public async fetchAllPeopleAndWorldData(): Promise<ApiResultPeople> {
-      let result1 = await this.getPeople()
+  public async fetchAllPeopleAndWorldData(page=1): Promise<ApiResultPeople> {
+      let result1 = await this.getPeople(page)
       for (let item of result1.results) {
         let result2 = await this.getPlanet(item.homeworld) 
         item.homeworld = result2.name
       }
       return result1
   }
-  private async getPeople(): Promise<ApiResultPeople>{
-    return this.httpClient.get<ApiResultPeople>(this.apiPeopleURL).toPromise()
+  private async getPeople(page): Promise<ApiResultPeople>{
+    return this.httpClient.get<ApiResultPeople>(this.apiPeopleURL + `?page=${page}`).toPromise()
   }
   private async getPlanet(id:string): Promise<Planet>{
     return this.httpClient.get<Planet>(id).toPromise()
