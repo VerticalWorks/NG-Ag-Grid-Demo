@@ -8,7 +8,8 @@ import { BowmanComponent } from './components/bowman/bowman.component';
 const routes: Routes = [
   { path: 'my-table', component: MyTableComponent },
   { path: 'bowman', component: BowmanComponent },
-  { path: '**', component: MyTableComponent },  
+  { path: '', redirectTo: '/my-table', pathMatch: 'full' },
+  { path: '**', component: AppPageNotFoundComponent },  
 ];
 
 @NgModule({
