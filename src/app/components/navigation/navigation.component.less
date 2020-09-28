@@ -1,19 +1,45 @@
-mat-toolbar-row{
- 
-  .items{
-    display:flex; 
-    height:15px;
-    padding-top:15px;
-    padding:20px;
-    .title{
-      font-size: larger;
-    }
-    .menuItems{
-      a{
-        padding-left: 30px;   
-        order: 3;
+.top-level{
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  color: white;
+  mat-toolbar-row{
+    .items{
+      display:flex; 
+      height:15px;
+      padding-top:15px;
+      padding:20px;
+      .title{
+        font-size: larger;
       }
-     
+      .menuItems{
+        a:link {
+          color:yellow;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        
+        a:visited {
+          color:yellow;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        
+        a:hover {
+          color:rgba(0,212,255,1);
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        
+        a:active {
+          color: yellow;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        a{
+          padding-left: 30px;   
+          order: 3;
+        }
+      }
     }
   }
 }
