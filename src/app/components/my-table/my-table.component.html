@@ -21,11 +21,11 @@
   <div>
     <mat-paginator
      #paginator
-     [pageSize]="config.pageSize"
+     [pageSize]="pager.pageSize"
      [pageSizeOptions]="[10]"
      [showFirstLastButtons]="true"
      [length]="apiResults.count"
-     [pageIndex]="config.pageIndex"
+     [pageIndex]="pager.pageIndex"
      (page)="handlePage($event)">
 </mat-paginator>
   </div>

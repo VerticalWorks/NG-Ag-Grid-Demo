@@ -1,12 +1,12 @@
-import { AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import { tap } from 'rxjs/operators';
-import { ApiResultPeople } from 'src/app/models/api-result-people';
-import { Planet } from 'src/app/models/planet';
-import { People } from 'src/app/models/people';
-import { DataLayerService } from '../../services/data-layer.service';
-import { GridOptions, Module } from 'ag-grid-community';
-import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { AfterViewInit, Component, OnInit, ViewChild} from '@angular/core'
+import { tap } from 'rxjs/operators'
+import { ApiResultPeople } from 'src/app/models/api-result-people'
+import { Planet } from 'src/app/models/planet'
+import { People } from 'src/app/models/people'
+import { DataLayerService } from '../../services/data-layer.service'
+import { GridOptions, Module } from 'ag-grid-community'
+import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model'
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator'
 
 @Component({
   selector: 'app-my-table',
@@ -14,41 +14,41 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
   styleUrls: ['./my-table.component.less']
 })
 export class MyTableComponent implements AfterViewInit, OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator
   
   //grid stuff
-  gridOptions: GridOptions;
-  apiResults = {}  as ApiResultPeople;
-  gridApi;
-  gridColumnApi;
-  autoGroupColumnDef;
-  columnDefs;
-  defaultColDef;
-  rowSelection;
-  rowDragManaged;
+  gridOptions: GridOptions
+  apiResults = {}  as ApiResultPeople
+  gridApi
+  gridColumnApi
+  autoGroupColumnDef
+  columnDefs
+  defaultColDef
+  rowSelection
+  rowDragManaged
   suppressLoadingOverlay= false
-  rowData: [];
+  rowData: []
   checkboxSelection = function (params) {
-    return params.columnApi.getRowGroupColumns().length === 0;
-  };
+    return params.columnApi.getRowGroupColumns().length === 0
+  }
   headerCheckboxSelection = function (params) {
-    return params.columnApi.getRowGroupColumns().length === 0;
-  };
+    return params.columnApi.getRowGroupColumns().length === 0
+  }
   
   //paginator data
-  config = {
-    itemsPerPage: 5,
+  pager = {
+    itemsPerPage: 10,
     pageSize: 10,
-    pageIndex:1,
-    totalItems: 1
-  };
+    pageIndex:0,
+    totalItems: 0,
+  }
 
   constructor(private dataService: DataLayerService) {
-    this.apiResults.count=0;
-    this.apiResults.next='';
-    this.apiResults.previous='';
-    this.apiResults.results = Array<People>();
-    this.rowSelection = 'multiple';
+    this.apiResults.count=0
+    this.apiResults.next=''
+    this.apiResults.previous=''
+    this.apiResults.results = Array<People>()
+    this.rowSelection = 'multiple'
     this.columnDefs = [
       { rowDrag:false ,checkboxSelection: this.checkboxSelection, width:40, sortable:true, filter:true},
       { field: 'name', sortable:true, filter:true},
@@ -59,7 +59,7 @@ export class MyTableComponent implements AfterViewInit, OnInit {
       width: 170,
       sortable: true,
       filter: true
-    };
+    }
 
     this.autoGroupColumnDef = {
       headerName: 'Group',
@@ -67,15 +67,15 @@ export class MyTableComponent implements AfterViewInit, OnInit {
       field: 'name',
       valueGetter: function (params) {
         if (params.node.group) {
-          return params.node.key;
+          return params.node.key
         } else {
-          return params.data[params.colDef.field];
+          return params.data[params.colDef.field]
         }
       },
       headerCheckboxSelection: false,
       cellRenderer: 'agGroupCellRenderer',
       cellRendererParams: { checkbox: true },
-    };
+    }
   }
   
   ngOnInit() {
@@ -84,22 +84,35 @@ export class MyTableComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {
   }
   
-  fetchAllPeople(page=1){
-    this.dataService.fetchAllPeopleAndWorldData(page).then(data=>{
+  fetchAllPeople(pageUrl=null){
+    this.dataService.fetchAllPeopleAndWorldData(pageUrl).then(data=>{
     this.apiResults=data
-    this.config.pageIndex = page-1;
-    this.config.pageSize = 10;
-    this.config.totalItems =data.count;
    })
   }
   public handlePage(e: any) {
-    //this.config.currentPage = e.pageIndex;
-    //this.config.pageSize = e.pageSize;
-    this.fetchAllPeople(e.pageIndex)
+    
+    // something went wrong, reset.
+    if(this.apiResults.next===null && this.apiResults.previous===null){
+      this.fetchAllPeople()
+      this.pager.pageIndex=1
+      this.pager.totalItems = this.apiResults.count
+    }
+    
+    // move to next page
+    if((e.pageIndex > e.previousPageIndex) && (this.apiResults.next!=null)){
+      this.fetchAllPeople(this.apiResults.next)
+    }
+   
+    // move to previous page
+    if((e.pageIndex < e.previousPageIndex) && (this.apiResults.previous!=null)){
+      this.fetchAllPeople(this.apiResults.previous)
+    }
+
   }
+  
   onGridReady(params) {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
+    this.gridApi = params.api
+    this.gridColumnApi = params.columnApi
     this.fetchAllPeople()
     this.suppressLoadingOverlay=true
   }

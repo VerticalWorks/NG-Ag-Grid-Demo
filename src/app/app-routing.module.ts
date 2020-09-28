@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AppPageNotFoundComponent } from './components/app-page-not-found/app-page-not-found.component';
-import { MyTableComponent } from './components/my-table/my-table.component';
-import { BowmanComponent } from './components/bowman/bowman.component';
+import { NgModule } from '@angular/core'
+import { Routes, RouterModule } from '@angular/router'
+import { AppPageNotFoundComponent } from './components/app-page-not-found/app-page-not-found.component'
+import { MyTableComponent } from './components/my-table/my-table.component'
+import { BowmanComponent } from './components/bowman/bowman.component'
 
 
 const routes: Routes = [

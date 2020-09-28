@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { DataLayerService } from './services/data-layer.service';
+import { Component } from '@angular/core'
+import { DataLayerService } from './services/data-layer.service'
 
 @Component({
   selector: 'app-root',
@@ -10,5 +10,5 @@ export class AppComponent {
   constructor(private dataService: DataLayerService){
 
   }
-  title = 'bowman';
+  title = 'bowman'
 }
