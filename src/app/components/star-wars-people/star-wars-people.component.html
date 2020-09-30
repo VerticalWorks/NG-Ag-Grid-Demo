@@ -20,13 +20,13 @@
   </div>
   <div>
     <mat-paginator
-     #paginator
-     [pageSize]="pager.pageSize"
-     [pageSizeOptions]="[10]"
-     [showFirstLastButtons]="true"
-     [length]="apiResults.count"
-     [pageIndex]="pager.pageIndex"
-     (page)="handlePage($event)">
-</mat-paginator>
+      #paginator
+      [pageSize]="pager.pageSize"
+      [pageSizeOptions]="[10]"
+      [showFirstLastButtons]="true"
+      [length]="apiResults.count"
+      [pageIndex]="pager.pageIndex"
+      (page)="handlePage($event)">
+    </mat-paginator>
   </div>
 </div>

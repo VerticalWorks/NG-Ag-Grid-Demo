@@ -1,44 +1,29 @@
+@import "../../../styles.less";
 .top-level{
-  background: rgb(2,0,36);
-  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-  color: white;
-  box-shadow: -1px 10px 7px grey;
-  mat-toolbar-row{
-    .items{
-      display:flex; 
-      height:15px;
-      padding-top:15px;
-      padding:20px;
+  mat-toolbar {
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(95, 108, 184) 100%);
+    box-shadow: -1px 10px 7px grey;
+    color:white;
+    width:auto;
+    .container{
+      display:block;
+      .tempBox();
+      padding-top: 14px;
       .title{
-        font-size: larger;
+        text-shadow: 1px 2px 3px #252525;
       }
-      .menuItems{
-        a:link {
-          color:yellow;
-          background-color: transparent;
-          text-decoration: none;
-        }
-        
-        a:visited {
-          color:yellow;
-          background-color: transparent;
-          text-decoration: none;
-        }
-        
-        a:hover {
-          color:rgba(0,212,255,1);
-          background-color: transparent;
-        }
-        
-        a:active {
-          color: yellow;
-          background-color: transparent;
-        }
-        a{
-          padding-left: 30px;   
-          order: 3;
-        }
+      .ng-version{
+        margin-top: -15px;
+        font-size: xx-small;
+        color:rgb(255, 196, 0);
       }
+    }
+    .example-spacer {
+      flex: 1 1 auto;
+    }
+    > button{
+      color:white !important;
     }
   }
 }

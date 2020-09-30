@@ -1,4 +1,4 @@
-# Bowman
+# Bowman's NG Demo
 ### This project was created over two days.  I did not want to be unfair and take any longer to complete your tasks.
 
 ## ISSUES

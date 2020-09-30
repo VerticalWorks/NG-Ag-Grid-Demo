@@ -3,16 +3,15 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { StarWarsPeopleComponent } from './star-wars-people.component';
 
-import { MyTableComponent } from './my-table.component';
-
-describe('MyTableComponent', () => {
-  let component: MyTableComponent;
-  let fixture: ComponentFixture<MyTableComponent>;
+describe('StarWarsPeopleComponent', () => {
+  let component: StarWarsPeopleComponent;
+  let fixture: ComponentFixture<StarWarsPeopleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyTableComponent ],
+      declarations: [ StarWarsPeopleComponent ],
       imports: [
         NoopAnimationsModule,
         MatPaginatorModule,
@@ -23,7 +22,7 @@ describe('MyTableComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MyTableComponent);
+    fixture = TestBed.createComponent(StarWarsPeopleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

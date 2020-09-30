@@ -1,19 +1,16 @@
 import { AfterViewInit, Component, OnInit, ViewChild} from '@angular/core'
-import { tap } from 'rxjs/operators'
 import { ApiResultPeople } from 'src/app/models/api-result-people'
-import { Planet } from 'src/app/models/planet'
 import { People } from 'src/app/models/people'
 import { DataLayerService } from '../../services/data-layer.service'
 import { GridOptions, Module } from 'ag-grid-community'
-import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model'
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator'
+import { MatPaginator } from '@angular/material/paginator'
 
 @Component({
-  selector: 'app-my-table',
-  templateUrl: './my-table.component.html',
-  styleUrls: ['./my-table.component.less']
+  selector: 'app-star-wars-people',
+  templateUrl: './star-wars-people.component.html',
+  styleUrls: ['./star-wars-people.component.less']
 })
-export class MyTableComponent implements AfterViewInit, OnInit {
+export class StarWarsPeopleComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator
   
   //grid stuff

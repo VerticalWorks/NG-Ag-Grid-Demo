@@ -10,7 +10,7 @@ import { map, shareReplay } from 'rxjs/operators'
 })
 export class NavigationComponent {
 
-  public title = `Bowman's Demo`
+  public title = `Bowman's Angular 10 Demo`
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

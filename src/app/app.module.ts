@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatIconModule } from '@angular/material/icon'
 import { MatListModule } from '@angular/material/list'
-import { MyTableComponent } from './components/my-table/my-table.component'
+import { BowmanComponent } from './components/bowman/bowman.component'
 import { MatTableModule } from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatSortModule } from '@angular/material/sort'
@@ -19,15 +19,15 @@ import { AppPageNotFoundComponent } from './components/app-page-not-found/app-pa
 import { AgGridModule } from 'ag-grid-angular'
 import { GridOptions, AllCommunityModules} from '@ag-grid-community/all-modules'
 import { HttpClientModule } from '@angular/common/http'
-import { BowmanComponent } from './components/bowman/bowman.component'
+import { StarWarsPeopleComponent } from './components/star-wars-people/star-wars-people.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    MyTableComponent,
+    BowmanComponent,
     AppPageNotFoundComponent,
-    BowmanComponent  
+    StarWarsPeopleComponent  
   ],
   imports: [
     BrowserModule,
