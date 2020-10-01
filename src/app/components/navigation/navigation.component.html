@@ -2,10 +2,18 @@
   <mat-toolbar>
     <div class='container'>
       <div class='title'>{{title}}</div>
-      <div class='ng-version'>Angular 10.1.3</div>
+      <div class='ng-version'>Built with: Angular 10.1.3</div>
     </div>
     <div class="example-spacer"></div>
-    <button mat-button color="primary" [routerLink]="['/star-wars-people']">Star Wars People</button>
+    <button class='container2' mat-button color="primary" [routerLink]="['/star-wars-people']">
+        <div class='special-text'>Star Wars People</div>
+        <div class='special-label'>AG-GRID</div>
+    </button>
+    <button class='container2' mat-button color="primary" [routerLink]="['/star-wars-people']">
+      <div class='special-text'>Star Wars People</div>
+      <div class='special-label'>Material Table</div>
+  </button>
+    
     <button mat-button color="primary" [routerLink]="['/lazy-loading']">Lazy Loading Example</button>
     <button mat-button color="primary" [routerLink]="['/ngxs-example']">NGXS Example</button>
     <button mat-button color="primary" [routerLink]="['/bowman']">About Michael</button>
