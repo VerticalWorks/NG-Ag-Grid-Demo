@@ -15,7 +15,8 @@ import { GridOptions, AllCommunityModules} from '@ag-grid-community/all-modules'
 import { HttpClientModule } from '@angular/common/http'
 import { StarWarsPeopleComponent } from './components/star-wars-people/star-wars-people.component';
 import { SpinnerComponent } from './components/spinner/spinner.component'
-
+import { NgxsModule } from '@ngxs/store';
+import { environment } from 'src/environments/environment'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,10 @@ import { SpinnerComponent } from './components/spinner/spinner.component'
     BrowserAnimationsModule,
     LayoutModule,
     MaterialModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    NgxsModule.forRoot([], {
+      developmentMode: !environment.production
+    })
   ],
   entryComponents: [SpinnerComponent],
   providers: [DataLayerService],
