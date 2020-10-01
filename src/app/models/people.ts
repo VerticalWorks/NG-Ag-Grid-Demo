@@ -1,5 +1,5 @@
 import {Planet} from './planet'
-export class People {
+export interface People {
         "name": string; 
         "height": string; 
         "mass": string; 
