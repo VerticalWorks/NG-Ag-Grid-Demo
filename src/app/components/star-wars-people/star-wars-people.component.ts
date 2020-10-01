@@ -4,6 +4,10 @@ import { People } from 'src/app/models/people'
 import { DataLayerService } from '../../services/data-layer.service'
 import { GridOptions, Module } from 'ag-grid-community'
 import { MatPaginator } from '@angular/material/paginator'
+import { MatButton } from '@angular/material/button'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SpinnerComponent} from '../spinner/spinner.component'
+
 
 @Component({
   selector: 'app-star-wars-people',
@@ -24,6 +28,8 @@ export class StarWarsPeopleComponent implements AfterViewInit, OnInit {
   rowSelection
   rowDragManaged
   suppressLoadingOverlay= false
+  suppressNoRowsOverlay = true
+  
   rowData: []
   checkboxSelection = function (params) {
     return params.columnApi.getRowGroupColumns().length === 0
@@ -40,7 +46,7 @@ export class StarWarsPeopleComponent implements AfterViewInit, OnInit {
     totalItems: 0,
   }
 
-  constructor(private dataService: DataLayerService) {
+  constructor(private dataService: DataLayerService, private dialog: MatDialog) {
     this.apiResults.count=0
     this.apiResults.next=''
     this.apiResults.previous=''
@@ -82,9 +88,25 @@ export class StarWarsPeopleComponent implements AfterViewInit, OnInit {
   }
   
   fetchAllPeople(pageUrl=null){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    
+    let dialogRef = this.dialog.open(SpinnerComponent,dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`); 
+    });
+    this.suppressNoRowsOverlay = true;
     this.dataService.fetchAllPeopleAndWorldData(pageUrl).then(data=>{
     this.apiResults=data
+    if(this.apiResults.count>0){
+      this.suppressNoRowsOverlay = false;
+      dialogRef.close();
+    }
    })
+  }
+  loadData(){
+    this.fetchAllPeople()
   }
   public handlePage(e: any) {
     
@@ -110,7 +132,5 @@ export class StarWarsPeopleComponent implements AfterViewInit, OnInit {
   onGridReady(params) {
     this.gridApi = params.api
     this.gridColumnApi = params.columnApi
-    this.fetchAllPeople()
-    this.suppressLoadingOverlay=true
   }
 }

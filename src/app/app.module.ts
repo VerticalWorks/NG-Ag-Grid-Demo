@@ -6,20 +6,15 @@ import { AppComponent } from './app.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NavigationComponent } from './components/navigation/navigation.component'
 import { LayoutModule } from '@angular/cdk/layout'
-import { MatToolbarModule } from '@angular/material/toolbar'
-import { MatButtonModule } from '@angular/material/button'
-import { MatSidenavModule } from '@angular/material/sidenav'
-import { MatIconModule } from '@angular/material/icon'
-import { MatListModule } from '@angular/material/list'
 import { BowmanComponent } from './components/bowman/bowman.component'
-import { MatTableModule } from '@angular/material/table'
-import { MatPaginatorModule } from '@angular/material/paginator'
-import { MatSortModule } from '@angular/material/sort'
+import { MaterialModule } from './material-module'
+
 import { AppPageNotFoundComponent } from './components/app-page-not-found/app-page-not-found.component'
 import { AgGridModule } from 'ag-grid-angular'
 import { GridOptions, AllCommunityModules} from '@ag-grid-community/all-modules'
 import { HttpClientModule } from '@angular/common/http'
-import { StarWarsPeopleComponent } from './components/star-wars-people/star-wars-people.component'
+import { StarWarsPeopleComponent } from './components/star-wars-people/star-wars-people.component';
+import { SpinnerComponent } from './components/spinner/spinner.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +22,8 @@ import { StarWarsPeopleComponent } from './components/star-wars-people/star-wars
     NavigationComponent,
     BowmanComponent,
     AppPageNotFoundComponent,
-    StarWarsPeopleComponent  
+    StarWarsPeopleComponent,
+    SpinnerComponent  
   ],
   imports: [
     BrowserModule,
@@ -35,16 +31,10 @@ import { StarWarsPeopleComponent } from './components/star-wars-people/star-wars
     HttpClientModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
+    MaterialModule,
     AgGridModule.withComponents([])
   ],
+  entryComponents: [SpinnerComponent],
   providers: [DataLayerService],
   bootstrap: [AppComponent]
 })

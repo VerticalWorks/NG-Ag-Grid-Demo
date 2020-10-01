@@ -1,10 +1,12 @@
 <div class='top-level'>
-  <div class='title'>Star Wars People</div>
+  
+  <div class='title'><h1>Star Wars People</h1></div>
+  
   <div class='grid'>
     <ag-grid-angular
       #myGrid
       id="myGrid"
-      style="width: 600px; height: 500px;"
+      style="width: 100%; height: 500px;"
       class="ag-theme-alpine"
       [columnDefs]="columnDefs"
       [defaultColDef]="defaultColDef"
@@ -18,7 +20,8 @@
       (gridReady)="onGridReady($event)">
     </ag-grid-angular>
   </div>
-  <div>
+
+  <div class='paginator'>
     <mat-paginator
       #paginator
       [pageSize]="pager.pageSize"
@@ -29,4 +32,10 @@
       (page)="handlePage($event)">
     </mat-paginator>
   </div>
+  <div class='operations'>
+    <button class='load-data' mat-button color="primary" (click)='loadData()'>
+      Load Data
+  </button>
+  </div>
+
 </div>
