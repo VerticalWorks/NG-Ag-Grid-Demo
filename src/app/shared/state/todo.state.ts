@@ -17,7 +17,7 @@ export class TodoStateModel {
 })
 
 @Injectable()
-class TodosState {
+export class TodoState {
     @Selector()
     static fetchAll(state: TodoStateModel) {
         return state.todos
