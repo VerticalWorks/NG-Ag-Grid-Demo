@@ -1,11 +1,14 @@
 @import "../../../styles.less";
 .top-level{
   mat-toolbar {
+    //display:flex;
+    //justify-content: space-evenly;
+    //flex-direction: row;
     background: rgb(2,0,36);
     background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(95, 108, 184) 100%);
     box-shadow: -1px 10px 7px grey;
     color:white;
-    width:auto;
+    //width:auto;
     .container{
       display:inline-block;
       padding-top: 14px;
@@ -21,11 +24,13 @@
     .example-spacer {
       flex: 1 1 auto;
     }
-    > button{
-     
-      color:white !important;
-    }
-    > .container2{
+    .menu-options{
+      display:flex;
+      justify-content: flex-end;
+      > button{
+        color:white !important;
+      }
+      > .container2{
       display:inline-block;
       height:39px;
       align-items: center;
@@ -40,7 +45,7 @@
         font-size: xx-small;
         color:rgb(255, 196, 0);
       }
+      }
     }
-    
   }
 }
