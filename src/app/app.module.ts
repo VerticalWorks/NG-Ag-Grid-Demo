@@ -8,6 +8,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { LayoutModule } from '@angular/cdk/layout'
 import { BowmanComponent } from './components/bowman/bowman.component'
 import { MaterialModule } from './material-module'
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppPageNotFoundComponent } from './components/app-page-not-found/app-page-not-found.component'
 import { AgGridModule } from 'ag-grid-angular'
@@ -24,6 +25,7 @@ import { environment } from 'src/environments/environment';
 import { CreateTodoComponent } from './components/todo/create-todo/create-todo.component';
 import { ListTodoComponent } from './components/todo/list-todo/list-todo.component';
 import { StarWarsMatTableComponent } from './components/star-wars-mat-table/star-wars-mat-table.component';
+import { TodoState } from './shared/state/todo.state'
 
 @NgModule({
   declarations: [
@@ -44,8 +46,9 @@ import { StarWarsMatTableComponent } from './components/star-wars-mat-table/star
     BrowserAnimationsModule,
     LayoutModule,
     MaterialModule,
+    ReactiveFormsModule,
     AgGridModule.withComponents([]),
-    NgxsModule.forRoot([], {
+    NgxsModule.forRoot([TodoState], {
       developmentMode: !environment.production
     }),
     NgxsWebsocketPluginModule.forRoot({

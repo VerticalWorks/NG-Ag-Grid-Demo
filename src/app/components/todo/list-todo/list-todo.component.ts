@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Select, Store} from '@ngxs/store';
+import { Store} from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { Todo } from 'src/app/shared/actions/todo.actions';
 import { TodoModel } from 'src/app/shared/models/todo.model';
-import { TodoStateModel, TodoState } from '../../../shared/state/todo.state';
-
+import { CreateTodoComponent } from './../create-todo/create-todo.component'
 
 @Component({
   selector: 'app-list-todo',
@@ -12,10 +10,13 @@ import { TodoStateModel, TodoState } from '../../../shared/state/todo.state';
   styleUrls: ['./list-todo.component.less']
 })
 export class ListTodoComponent implements OnInit {
-  @Select() todos$: Observable<TodoStateModel>;
-  
+  //@Select() todos$: Observable<TodoStateModel>
+  todos$: Observable<TodoModel>;
+  dataSource = {}
+  displayedColumns: string[] = ['id', 'title', 'text', 'isCompleted'];
   constructor(private store: Store) {
-     
+    this.todos$ = this.store.select(state => state.todos.todos);
+    this.dataSource = this.todos$
    }
 
   ngOnInit(): void {
