@@ -16,6 +16,10 @@ import { HttpClientModule } from '@angular/common/http'
 import { StarWarsPeopleComponent } from './components/star-wars-people/star-wars-people.component';
 import { SpinnerComponent } from './components/spinner/spinner.component'
 import { NgxsModule } from '@ngxs/store';
+import { NgxsWebsocketPluginModule } from '@ngxs/websocket-plugin';
+import { NgxsFormPluginModule } from '@ngxs/form-plugin';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { environment } from 'src/environments/environment'
 @NgModule({
   declarations: [
@@ -36,7 +40,13 @@ import { environment } from 'src/environments/environment'
     AgGridModule.withComponents([]),
     NgxsModule.forRoot([], {
       developmentMode: !environment.production
-    })
+    }),
+    NgxsWebsocketPluginModule.forRoot({
+      url: 'ws://localhost:4200'
+    }),
+    NgxsFormPluginModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot()
   ],
   entryComponents: [SpinnerComponent],
   providers: [DataLayerService],

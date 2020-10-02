@@ -1176,10 +1176,31 @@
     enhanced-resolve "4.3.0"
     webpack-sources "1.4.3"
 
-"@ngxs/logger-plugin@^3.6.2-dev.master-eaa5d86":
-  version "3.6.2-dev.master-eaa5d86"
-  resolved "https://registry.yarnpkg.com/@ngxs/logger-plugin/-/logger-plugin-3.6.2-dev.master-eaa5d86.tgz#34bf1d5ae8e9f3eb5ce986cfdd807c46655cb7a1"
-  integrity sha512-CynyzuypI1XRjSln5Jn7dm3bT0/8U96RKRUlYQO6DKbEwsm05wky7+TVf4qIBGm2qsQU1JA7X/0Z6eyIv8Mm+w==
+"@ngxs/devtools-plugin@^3.7.0":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@ngxs/devtools-plugin/-/devtools-plugin-3.7.0.tgz#5b6b3e63411da527fcee1e8280714e1b95a838c7"
+  integrity sha512-jjq91AbnnhzSm4QRUd7M0Y+HnUYnsSTVwUy8c1BsH8rGQ9c77xIveQaF2UBngPaDKQzTyzdVO2rV7twy3W2/fg==
+  dependencies:
+    tslib "^1.9.0"
+
+"@ngxs/form-plugin@^3.7.0":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@ngxs/form-plugin/-/form-plugin-3.7.0.tgz#04d37119da26602fbe400c7e7de5530b7a75471b"
+  integrity sha512-dl9tqtXD2gnw+zdc1gzlCRSzwJ+Pme0A9qNdwRRH6vaP1zPoY72DnGpTAosXPtXUU31jtcvcVpRxRR5TxLklWg==
+  dependencies:
+    tslib "^1.9.0"
+
+"@ngxs/logger-plugin@^3.7.0":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@ngxs/logger-plugin/-/logger-plugin-3.7.0.tgz#a27d6bb27360fc2677773c57868740b8cd33cc41"
+  integrity sha512-yr3NXXJEqJnxSuKiHaTbNmoprKKcrIS1PUIlOm9nvKsOmyrGskxu+MYCzUifemXDIyXSP2u0OBNPrVUumcXyhg==
+  dependencies:
+    tslib "^1.9.0"
+
+"@ngxs/router-plugin@^3.7.0":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@ngxs/router-plugin/-/router-plugin-3.7.0.tgz#9d0595d8ec12e6143eb9f2f726fcc7cdec8cd635"
+  integrity sha512-nmArryNIBLWqIKLWelOQhgxEC3evLPDNDkE+PEYvwoASC4NP5rHIqJv0borJAWBCwo10t5wPeT1417vBQex5aQ==
   dependencies:
     tslib "^1.9.0"
 
@@ -1187,6 +1208,13 @@
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.7.0.tgz#e46387219dae610c685accc119ae42e351afcaa4"
   integrity sha512-w9fG/DhKBgH1VJMKSoeNW9x9ycD9/Dzy+VkpFD8Jv0JBNX0MRgP+5KQQe3ZKwnJ+7S0UV/99JvJaWgxc/WOvPw==
+  dependencies:
+    tslib "^1.9.0"
+
+"@ngxs/websocket-plugin@^3.7.0":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@ngxs/websocket-plugin/-/websocket-plugin-3.7.0.tgz#aade73d6759fece4da209f3b630fde1006a3acc0"
+  integrity sha512-Vt6ea8RNqUW+VHcvOaDrzyBig+ei3WsT60c9Wyvgye44hs254LxLmQTlVq4T7v22WFygI6MHhBxLdC4XeLabzw==
   dependencies:
     tslib "^1.9.0"
 
