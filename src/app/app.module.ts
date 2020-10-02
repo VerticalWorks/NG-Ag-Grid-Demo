@@ -20,7 +20,11 @@ import { NgxsWebsocketPluginModule } from '@ngxs/websocket-plugin';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { environment } from 'src/environments/environment'
+import { environment } from 'src/environments/environment';
+import { CreateTodoComponent } from './components/todo/create-todo/create-todo.component';
+import { ListTodoComponent } from './components/todo/list-todo/list-todo.component';
+import { StarWarsMatTableComponent } from './components/star-wars-mat-table/star-wars-mat-table.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,10 @@ import { environment } from 'src/environments/environment'
     BowmanComponent,
     AppPageNotFoundComponent,
     StarWarsPeopleComponent,
-    SpinnerComponent  
+    SpinnerComponent,
+    CreateTodoComponent,
+    ListTodoComponent,
+    StarWarsMatTableComponent
   ],
   imports: [
     BrowserModule,
