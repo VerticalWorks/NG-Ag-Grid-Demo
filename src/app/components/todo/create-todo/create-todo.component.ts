@@ -23,8 +23,8 @@ export class CreateTodoComponent implements OnInit {
     let id = Date.now().toString();
     this.formGroup = this.fb.group({
       id: [id, Validators.required ],
-      title: ['your title here', Validators.required ],
-      text: ['your text here', Validators.required],
+      title: ['', Validators.required ],
+      text: ['', Validators.required],
       isCompleted: [false, Validators.required]
    });
   }
