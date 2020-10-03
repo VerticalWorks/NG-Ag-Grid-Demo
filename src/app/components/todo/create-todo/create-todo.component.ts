@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngxs/store';
-import { Todo } from 'src/app/shared/actions/todo.actions';
+import { Todo } from '../../../shared/actions/todo.actions';
+import { TodoModel} from '../../../shared/models/todo.model';
 
 @Component({
   selector: 'app-create-todo',
@@ -10,12 +12,13 @@ import { Todo } from 'src/app/shared/actions/todo.actions';
 })
 export class CreateTodoComponent implements OnInit {
   formGroup: FormGroup;
-  constructor(private fb: FormBuilder, private store: Store) {
-     this.createForm()
-   }
+  constructor(private fb: FormBuilder, private store: Store, public dialogRef: MatDialogRef<CreateTodoComponent>) {
+    this.createForm()
+  }
 
   ngOnInit(): void {
   }
+
   createForm() {
     let id = Date.now().toString();
     this.formGroup = this.fb.group({
@@ -26,8 +29,17 @@ export class CreateTodoComponent implements OnInit {
    });
   }
   
-  addTodo(id:string, title:string, text:string, isCompleted:boolean) {
-    let obj = new Todo.Add({id, title, text, isCompleted})
+  addTodo() {
+    let newTodo = {} as TodoModel
+    newTodo.id = this.formGroup.controls['id'].value
+    newTodo.title = this.formGroup.controls['title'].value
+    newTodo.text = this.formGroup.controls['text'].value
+    newTodo.isCompleted = this.formGroup.controls['isCompleted'].value
+    let obj = new Todo.Add(newTodo)
     this.store.dispatch(obj);
+    this.dialogRef.close();
+  }
+  cancel(){
+    this.dialogRef.close();
   }
 }

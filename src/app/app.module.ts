@@ -58,7 +58,7 @@ import { TodoState } from './shared/state/todo.state'
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot()
   ],
-  entryComponents: [SpinnerComponent],
+  entryComponents: [SpinnerComponent, CreateTodoComponent],
   providers: [DataLayerService],
   bootstrap: [AppComponent]
 })

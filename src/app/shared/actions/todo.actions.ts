@@ -4,7 +4,7 @@ export namespace Todo {
     export class Add {
       static readonly type = '[Todo] Add';
       constructor(public payload: TodoModel) {
-        payload.id =Date.now.toString()
+        
       }
     }
   
