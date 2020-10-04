@@ -1,17 +1,18 @@
 # Bowman's NG Demo
-### This project was created over two days.  I did not want to be unfair and take any longer to complete your tasks.
+### Welcome to my Angular 10 demo app.  I'm still building it out, but feel free to enkoy it
 
-## ISSUES
-- I had to use y girlfirends PC as mine was destroyed in the fires.
-- The AG-GRID does not support drag and drop with sorting enabled at the same time, so I had to disable drag and drop.  It's very easy to reactivate by simply changing:   rowDrag from false to true in the my-table.component.ts file
-- Also, I did not complete writing the selected(checked) rows to local storage due to self inflicted time constraints.
-- Pagination was almost working (buttons showing) but because I used the community edition of Ag-Grid, I could not use the Server Side Row Model; which allows for pagination.  I have used it before with Django, it works great.  In fact the AG-Grid will handle 100,000 rows with ease in the Client Side Model; pagination is a breeze.
-- I did not complete the favorties page (filtering on just favorites).
-- I did not complete your toggle either (again due to time).
+## Features
+- (pending) Lazy Loading
+- (pending) Star Wars Material Table 
+- (done)    Routing  
+- (done)    Star Wars - AG-Grid Example (sorting, filtering, pagination using Mat)
+- (done)    NGXS
+- (done)    Super Color Tiles (1500 directives using NGXS at once) 
+  
 
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12, then migrated to NG 10
 
 ## Development server
 
