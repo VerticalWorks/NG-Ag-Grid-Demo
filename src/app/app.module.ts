@@ -25,7 +25,10 @@ import { environment } from 'src/environments/environment';
 import { CreateTodoComponent } from './components/todo/create-todo/create-todo.component';
 import { ListTodoComponent } from './components/todo/list-todo/list-todo.component';
 import { StarWarsMatTableComponent } from './components/star-wars-mat-table/star-wars-mat-table.component';
-import { TodoState } from './shared/state/todo.state'
+import { TodoState } from './shared/state/todo.state';
+import { ColorTilesComponent } from './components/color-tiles/color-tiles.component';
+import { ColorTileComponent } from './components/color-tile/color-tile.component'
+import { ColorTileState } from './shared/state/color-tile.state'
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import { TodoState } from './shared/state/todo.state'
     SpinnerComponent,
     CreateTodoComponent,
     ListTodoComponent,
-    StarWarsMatTableComponent
+    StarWarsMatTableComponent,
+    ColorTilesComponent,
+    ColorTileComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,7 @@ import { TodoState } from './shared/state/todo.state'
     MaterialModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([]),
-    NgxsModule.forRoot([TodoState], {
+    NgxsModule.forRoot([TodoState, ColorTileState], {
       developmentMode: !environment.production
     }),
     NgxsWebsocketPluginModule.forRoot({

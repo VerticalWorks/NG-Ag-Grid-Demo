@@ -1,5 +1,4 @@
 import {TodoModel} from './../models/todo.model'
-import { StringDecoder } from 'string_decoder';
 export namespace Todo {
     export class Add {
       static readonly type = '[Todo] Add';

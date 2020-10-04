@@ -1,0 +1,12 @@
+<div class='top-level'>
+    <div>
+        <h1>Color Tiles</h1>
+    </div>
+    <div class='tiles'>
+        <div class='tile' *ngFor="let tile of tiles">
+            <app-color-tile></app-color-tile>    
+        </div>
+    </div>
+    <button class='btn-change-color' mat-button color="primary" (click)='changeColor()'>Randomize Color</button>
+    <button class='btn-change-color' mat-button color="primary" (click)='resetColor()'>Reset Color</button>
+</div>
