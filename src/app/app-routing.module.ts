@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'todo', component: ListTodoComponent },
   { path: 'color-tiles', component: ColorTilesComponent },
   { path: '', redirectTo: '/star-wars-ag-grid', pathMatch: 'full' },
+  { path: 'lazy-me', loadChildren: () => import('./modules/lazy-me/lazy-me.module').then(m => m.LazyMeModule) },
   { path: '**', component: AppPageNotFoundComponent },  
 ];
 
