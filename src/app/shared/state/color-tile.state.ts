@@ -33,6 +33,7 @@ export class ColorTileState {
     @Action(ColorTile.Randomize)
     randomizeTiles(store: StateContext<string>) {
       const tileMode = store.getState();
+      store.setState('');
       store.setState('Randomize');
     } 
 }
