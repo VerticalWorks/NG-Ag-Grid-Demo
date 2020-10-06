@@ -6,8 +6,8 @@ import { LazyMeComponent } from './lazy-me.component';
 
 const routes: Routes = [
   { path: '', component: LazyMeComponent },
-  { path: 'comp-one', component: CompOneComponent },
-  { path: 'comp-two', component: CompTwoComponent },
+  { path: '/lazy-me/comp-one', component: CompOneComponent },
+  { path: '/lazy-me/comp-two', component: CompTwoComponent },
 
 ];
 
