@@ -2,8 +2,8 @@
 ### Welcome to my Angular 10 demo app.  I'm still building it out, but feel free to enjoy it
 
 ## Features
-- pending >  Lazy Loading
 - pending >  Star Wars Material Table 
+- done    >  Lazy Loading
 - done    >  Routing  
 - done    >  Star Wars - AG-Grid Example (sorting, filtering, pagination using Mat)
 - done    >  NGXS
