@@ -5,11 +5,15 @@ import { CompTwoComponent} from './components/comp-two/comp-two.component'
 import { LazyMeComponent } from './lazy-me.component';
 
 const routes: Routes = [
-  { path: '', component: LazyMeComponent },
-  { path: '/lazy-me/comp-one', component: CompOneComponent },
-  { path: '/lazy-me/comp-two', component: CompTwoComponent },
-
-];
+  {
+    path:  '',
+    component:  LazyMeComponent,
+    children: [
+    { path: 'comp-one', component: CompOneComponent },
+    { path: 'comp-two', component: CompTwoComponent },
+    ]
+  }
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
