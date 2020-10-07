@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NavigationComponent } from './components/navigation/navigation.component'
 import { LayoutModule } from '@angular/cdk/layout'
 import { BowmanComponent } from './components/bowman/bowman.component'
-import { MaterialModule } from './material-module'
+import { MaterialModule } from './shared/material-module'
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppPageNotFoundComponent } from './components/app-page-not-found/app-page-not-found.component'
