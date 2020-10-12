@@ -7,7 +7,7 @@
 - done    >  Star Wars - AG-Grid Example (sorting, filtering, pagination using Mat)
 - done    >  NGXS
 - done    >  Super Color Tiles (1500 directives using NGXS at once) 
-  
+- done    >  Redux DevTools for Chrome, and Logger
 
 
 
