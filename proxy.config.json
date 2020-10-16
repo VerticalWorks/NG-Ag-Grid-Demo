@@ -1,0 +1,23 @@
+{
+    "/api/*": {
+    "target": "http://localhost:4242",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+    "/user/*": {
+      "target": "http://localhost:4242/user",
+      "secure": false,
+      "logLevel": "debug"
+    },
+    "/product/*": {
+      "target": "http://localhost:4242/product",
+      "secure": false,
+      "logLevel": "debug"
+    },
+    "/settings/*": {
+      "target": "http://localhost:4242/settings",
+      "secure": false,
+      "logLevel": "debug"
+    }
+  }
