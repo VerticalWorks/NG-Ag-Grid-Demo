@@ -98,11 +98,11 @@ export class StarWarsPeopleComponent implements AfterViewInit, OnInit {
     });
     this.suppressNoRowsOverlay = true;
     this.dataService.fetchAllPeopleAndWorldData(pageUrl).then(data=>{
-    this.apiResults=data
-    if(this.apiResults.count>0){
-      this.suppressNoRowsOverlay = false;
-      dialogRef.close();
-    }
+      this.apiResults=data
+      if(this.apiResults.count>0){
+        this.suppressNoRowsOverlay = false;
+        dialogRef.close();
+      }
    })
   }
   loadData(){

@@ -60,13 +60,14 @@ import { ColorTileState } from './shared/state/color-tile.state'
     }),
     NgxsWebsocketPluginModule.forRoot({
       url: 'ws://localhost:4200'
-    }),
+    }), 
     NgxsFormPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot()
   ],
   entryComponents: [SpinnerComponent, CreateTodoComponent],
-  providers: [DataLayerService] /*{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }*/,
+  providers: [DataLayerService,//{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
